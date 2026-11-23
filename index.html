@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,270 @@
     <title>TV 1</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
-            overflow: hidden;
             background: #000;
+            overflow: hidden;
         }
 
-        video {
+
+        /* =========================================
+           VIDEO
+        ========================================= */
+
+        #videoTV {
             position: absolute;
+
             top: 0;
             left: 0;
+
             width: 100%;
             height: 100%;
+
             object-fit: contain;
+
             background: #000;
+
+            z-index: 1;
         }
+
+
+        /* =========================================
+           CRONOMETRO
+        ========================================= */
+
+        #cronometro {
+            position: absolute;
+
+            top: 20px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            z-index: 9999;
+
+            width: 95%;
+
+            text-align: center;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            color: #FFFFFF;
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================
+           TITULO
+        ========================================= */
+
+        #titulo {
+            display: inline-block;
+
+            font-size: 40px;
+
+            font-weight: 900;
+
+            letter-spacing: 6px;
+
+            color: #FFFFFF;
+
+            background: rgba(0, 0, 0, 0.10);
+
+            border-radius: 10px;
+
+            padding: 5px 22px;
+
+            margin-bottom: 12px;
+
+            text-shadow:
+                3px 3px 5px #000000,
+                0 0 8px #000000;
+        }
+
+
+        /* =========================================
+           RELOGIO
+        ========================================= */
+
+        #relogio {
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        /* =========================================
+           BLOCOS
+        ========================================= */
+
+        .grupo {
+            background: rgba(0, 0, 0, 0.20);
+
+            border: 3px solid rgba(255, 255, 255, 0.90);
+
+            border-radius: 16px;
+
+            min-width: 165px;
+
+            padding: 14px 20px;
+
+            backdrop-filter: blur(2px);
+
+            -webkit-backdrop-filter: blur(2px);
+
+            box-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* =========================================
+           NUMEROS
+        ========================================= */
+
+        .valor {
+            display: block;
+
+            font-size: 82px;
+
+            line-height: 1;
+
+            font-weight: 900;
+
+            color: #FFFFFF;
+
+            font-variant-numeric: tabular-nums;
+
+            text-shadow:
+                3px 3px 4px #000000,
+                0 0 6px rgba(0, 0, 0, 0.90);
+        }
+
+
+        /* =========================================
+           LEGENDA
+        ========================================= */
+
+        .legenda {
+            display: block;
+
+            margin-top: 8px;
+
+            font-size: 19px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            color: #FFFFFF;
+
+            text-shadow:
+                2px 2px 4px #000000;
+        }
+
+
+        /* =========================================
+           DOIS PONTOS
+        ========================================= */
+
+        .separador {
+            font-size: 70px;
+
+            font-weight: 900;
+
+            color: #FFFFFF;
+
+            text-shadow:
+                3px 3px 5px #000000,
+                0 0 8px #000000;
+        }
+
+
+        /* =========================================
+           MENSAGEM FINAL
+        ========================================= */
+
+        #mensagemFinal {
+            display: none;
+
+            font-size: 70px;
+
+            font-weight: 900;
+
+            color: #FFFFFF;
+
+            background: rgba(0, 0, 0, 0.25);
+
+            border: 3px solid rgba(255, 255, 255, 0.90);
+
+            border-radius: 16px;
+
+            padding: 20px 30px;
+
+            text-shadow:
+                3px 3px 5px #000000;
+        }
+
+
+        /* =========================================
+           RESPONSIVO
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            #titulo {
+                font-size: 28px;
+            }
+
+            #relogio {
+                gap: 6px;
+            }
+
+            .grupo {
+                min-width: 100px;
+
+                padding: 10px;
+            }
+
+            .valor {
+                font-size: 50px;
+            }
+
+            .legenda {
+                font-size: 13px;
+            }
+
+            .separador {
+                font-size: 45px;
+            }
+
+        }
+
     </style>
+
 </head>
 
+
 <body>
+
+
+    <!-- =========================================
+         VIDEO
+    ========================================= -->
 
     <video
         id="videoTV"
@@ -50,23 +289,403 @@
 
     </video>
 
+
+
+    <!-- =========================================
+         CRONOMETRO
+    ========================================= -->
+
+    <div id="cronometro">
+
+
+        <!-- TITULO -->
+
+        <div id="titulo">
+
+            BLACK CESTA 2026
+
+        </div>
+
+
+
+        <!-- RELOGIO -->
+
+        <div id="relogio">
+
+
+            <!-- DIAS -->
+
+            <div class="grupo">
+
+                <span
+                    id="dias"
+                    class="valor">
+
+                    00
+
+                </span>
+
+                <span class="legenda">
+
+                    DIAS
+
+                </span>
+
+            </div>
+
+
+
+            <div class="separador">
+
+                :
+
+            </div>
+
+
+
+            <!-- HORAS -->
+
+            <div class="grupo">
+
+                <span
+                    id="horas"
+                    class="valor">
+
+                    00
+
+                </span>
+
+                <span class="legenda">
+
+                    HORAS
+
+                </span>
+
+            </div>
+
+
+
+            <div class="separador">
+
+                :
+
+            </div>
+
+
+
+            <!-- MINUTOS -->
+
+            <div class="grupo">
+
+                <span
+                    id="minutos"
+                    class="valor">
+
+                    00
+
+                </span>
+
+                <span class="legenda">
+
+                    MINUTOS
+
+                </span>
+
+            </div>
+
+
+
+            <div class="separador">
+
+                :
+
+            </div>
+
+
+
+            <!-- SEGUNDOS -->
+
+            <div class="grupo">
+
+                <span
+                    id="segundos"
+                    class="valor">
+
+                    00
+
+                </span>
+
+                <span class="legenda">
+
+                    SEGUNDOS
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- MENSAGEM QUANDO CHEGAR A DATA -->
+
+        <div id="mensagemFinal">
+
+            É BLACK CESTA!
+
+        </div>
+
+
+    </div>
+
+
+
     <script>
-        const video = document.getElementById("videoTV");
+
+        /* =========================================
+           VIDEO
+        ========================================= */
+
+        var video =
+            document.getElementById("videoTV");
+
 
         video.muted = true;
+
         video.loop = true;
 
-        video.addEventListener("canplay", function () {
-            video.play().catch(function (erro) {
-                console.log("Autoplay bloqueado:", erro);
-            });
+
+        video.play().catch(function () {
+
+            console.log(
+                "Autoplay aguardando navegador."
+            );
+
         });
 
-        video.addEventListener("ended", function () {
-            video.currentTime = 0;
-            video.play();
-        });
+
+
+        /* =========================================
+           DATA DO EVENTO
+
+           BLACK CESTA
+           27/11/2026
+           00:00
+           HORARIO DE SAO PAULO
+        ========================================= */
+
+        var dataFinal =
+            new Date(
+                "2026-11-27T00:00:00-03:00"
+            ).getTime();
+
+
+
+        /* =========================================
+           ELEMENTOS DO CRONOMETRO
+        ========================================= */
+
+        var elDias =
+            document.getElementById("dias");
+
+
+        var elHoras =
+            document.getElementById("horas");
+
+
+        var elMinutos =
+            document.getElementById("minutos");
+
+
+        var elSegundos =
+            document.getElementById("segundos");
+
+
+        var relogio =
+            document.getElementById("relogio");
+
+
+        var mensagemFinal =
+            document.getElementById("mensagemFinal");
+
+
+
+        /* =========================================
+           FORMATAR NUMERO
+
+           Exemplo:
+           9 -> 09
+           8 -> 08
+        ========================================= */
+
+        function formatarNumero(numero) {
+
+            if (numero < 10) {
+
+                return "0" + numero;
+
+            }
+
+            return String(numero);
+
+        }
+
+
+
+        /* =========================================
+           ATUALIZAR CRONOMETRO
+        ========================================= */
+
+        function atualizarCronometro() {
+
+
+            /* DATA E HORA ATUAL */
+
+            var agora =
+                new Date().getTime();
+
+
+            /* TEMPO RESTANTE */
+
+            var diferenca =
+                dataFinal - agora;
+
+
+
+            /* =====================================
+               SE CHEGOU A DATA
+            ===================================== */
+
+            if (diferenca <= 0) {
+
+
+                relogio.style.display =
+                    "none";
+
+
+                mensagemFinal.style.display =
+                    "inline-block";
+
+
+                return;
+
+            }
+
+
+
+            /* =====================================
+               TOTAL DE SEGUNDOS RESTANTES
+            ===================================== */
+
+            var totalSegundos =
+                Math.floor(
+                    diferenca / 1000
+                );
+
+
+
+            /* =====================================
+               DIAS
+            ===================================== */
+
+            var dias =
+                Math.floor(
+                    totalSegundos / 86400
+                );
+
+
+
+            /* =====================================
+               HORAS
+            ===================================== */
+
+            var horas =
+                Math.floor(
+
+                    (totalSegundos % 86400)
+
+                    /
+
+                    3600
+
+                );
+
+
+
+            /* =====================================
+               MINUTOS
+            ===================================== */
+
+            var minutos =
+                Math.floor(
+
+                    (totalSegundos % 3600)
+
+                    /
+
+                    60
+
+                );
+
+
+
+            /* =====================================
+               SEGUNDOS
+            ===================================== */
+
+            var segundos =
+                totalSegundos % 60;
+
+
+
+            /* =====================================
+               ATUALIZAR TELA
+            ===================================== */
+
+            elDias.textContent =
+                formatarNumero(dias);
+
+
+            elHoras.textContent =
+                formatarNumero(horas);
+
+
+            elMinutos.textContent =
+                formatarNumero(minutos);
+
+
+            elSegundos.textContent =
+                formatarNumero(segundos);
+
+        }
+
+
+
+        /* =========================================
+           EXECUTAR IMEDIATAMENTE
+        ========================================= */
+
+        atualizarCronometro();
+
+
+
+        /* =========================================
+           ATUALIZAR TODO SEGUNDO
+        ========================================= */
+
+        setInterval(
+
+            atualizarCronometro,
+
+            1000
+
+        );
+
+
     </script>
 
+
 </body>
+
 </html>
