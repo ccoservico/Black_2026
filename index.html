@@ -30,7 +30,6 @@
 
         #videoTV {
             position: absolute;
-
             top: 0;
             left: 0;
 
@@ -46,10 +45,98 @@
 
 
         /* =========================================
+           CONFETES
+        ========================================= */
+
+        #confetes {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 9000;
+
+            display: none;
+        }
+
+
+        .confete {
+            position: absolute;
+
+            top: -30px;
+
+            width: 12px;
+            height: 20px;
+
+            opacity: 0.95;
+
+            animation-name: cairConfete;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+
+        @keyframes cairConfete {
+
+            0% {
+
+                transform:
+                    translateY(-30px)
+                    rotate(0deg);
+
+            }
+
+            25% {
+
+                transform:
+                    translateY(25vh)
+                    translateX(30px)
+                    rotate(180deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(50vh)
+                    translateX(-25px)
+                    rotate(360deg);
+
+            }
+
+            75% {
+
+                transform:
+                    translateY(75vh)
+                    translateX(25px)
+                    rotate(540deg);
+
+            }
+
+            100% {
+
+                transform:
+                    translateY(110vh)
+                    translateX(-20px)
+                    rotate(720deg);
+
+            }
+
+        }
+
+
+        /* =========================================
            CRONOMETRO
         ========================================= */
 
         #cronometro {
+
             position: absolute;
 
             top: 20px;
@@ -63,11 +150,15 @@
 
             text-align: center;
 
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
 
             color: #FFFFFF;
 
             pointer-events: none;
+
         }
 
 
@@ -76,6 +167,7 @@
         ========================================= */
 
         #titulo {
+
             display: inline-block;
 
             font-size: 40px;
@@ -86,17 +178,21 @@
 
             color: #FFFFFF;
 
-            background: rgba(0, 0, 0, 0.10);
+            background:
+                rgba(0, 0, 0, 0.10);
 
             border-radius: 10px;
 
-            padding: 5px 22px;
+            padding:
+                5px
+                22px;
 
             margin-bottom: 12px;
 
             text-shadow:
                 3px 3px 5px #000000,
                 0 0 8px #000000;
+
         }
 
 
@@ -105,6 +201,7 @@
         ========================================= */
 
         #relogio {
+
             display: flex;
 
             justify-content: center;
@@ -112,6 +209,7 @@
             align-items: center;
 
             gap: 15px;
+
         }
 
 
@@ -120,22 +218,32 @@
         ========================================= */
 
         .grupo {
-            background: rgba(0, 0, 0, 0.20);
 
-            border: 3px solid rgba(255, 255, 255, 0.90);
+            background:
+                rgba(0, 0, 0, 0.20);
+
+            border:
+                3px solid
+                rgba(255, 255, 255, 0.90);
 
             border-radius: 16px;
 
             min-width: 165px;
 
-            padding: 14px 20px;
+            padding:
+                14px
+                20px;
 
-            backdrop-filter: blur(2px);
+            backdrop-filter:
+                blur(2px);
 
-            -webkit-backdrop-filter: blur(2px);
+            -webkit-backdrop-filter:
+                blur(2px);
 
             box-shadow:
-                0 4px 10px rgba(0, 0, 0, 0.35);
+                0 4px 10px
+                rgba(0, 0, 0, 0.35);
+
         }
 
 
@@ -144,6 +252,7 @@
         ========================================= */
 
         .valor {
+
             display: block;
 
             font-size: 82px;
@@ -154,11 +263,14 @@
 
             color: #FFFFFF;
 
-            font-variant-numeric: tabular-nums;
+            font-variant-numeric:
+                tabular-nums;
 
             text-shadow:
                 3px 3px 4px #000000,
-                0 0 6px rgba(0, 0, 0, 0.90);
+                0 0 6px
+                rgba(0, 0, 0, 0.90);
+
         }
 
 
@@ -167,6 +279,7 @@
         ========================================= */
 
         .legenda {
+
             display: block;
 
             margin-top: 8px;
@@ -181,6 +294,7 @@
 
             text-shadow:
                 2px 2px 4px #000000;
+
         }
 
 
@@ -189,6 +303,7 @@
         ========================================= */
 
         .separador {
+
             font-size: 70px;
 
             font-weight: 900;
@@ -198,6 +313,7 @@
             text-shadow:
                 3px 3px 5px #000000,
                 0 0 8px #000000;
+
         }
 
 
@@ -206,6 +322,7 @@
         ========================================= */
 
         #mensagemFinal {
+
             display: none;
 
             font-size: 70px;
@@ -214,16 +331,44 @@
 
             color: #FFFFFF;
 
-            background: rgba(0, 0, 0, 0.25);
+            background:
+                rgba(0, 0, 0, 0.25);
 
-            border: 3px solid rgba(255, 255, 255, 0.90);
+            border:
+                3px solid
+                rgba(255, 255, 255, 0.90);
 
             border-radius: 16px;
 
-            padding: 20px 30px;
+            padding:
+                20px
+                30px;
 
             text-shadow:
                 3px 3px 5px #000000;
+
+            animation:
+                pulsarMensagem
+                1s
+                infinite alternate;
+
+        }
+
+
+        /* =========================================
+           ANIMACAO DA MENSAGEM
+        ========================================= */
+
+        @keyframes pulsarMensagem {
+
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+
         }
 
 
@@ -234,29 +379,53 @@
         @media (max-width: 900px) {
 
             #titulo {
+
                 font-size: 28px;
+
             }
+
 
             #relogio {
+
                 gap: 6px;
+
             }
 
+
             .grupo {
+
                 min-width: 100px;
 
                 padding: 10px;
+
             }
+
 
             .valor {
+
                 font-size: 50px;
+
             }
+
 
             .legenda {
+
                 font-size: 13px;
+
             }
 
+
             .separador {
+
                 font-size: 45px;
+
+            }
+
+
+            #mensagemFinal {
+
+                font-size: 45px;
+
             }
 
         }
@@ -292,6 +461,14 @@
 
 
     <!-- =========================================
+         CONFETES
+    ========================================= -->
+
+    <div id="confetes"></div>
+
+
+
+    <!-- =========================================
          CRONOMETRO
     ========================================= -->
 
@@ -302,10 +479,9 @@
 
         <div id="titulo">
 
-            BLACK CESTAS 2026
+            BLACK CESTA 2026
 
         </div>
-
 
 
         <!-- RELOGIO -->
@@ -334,13 +510,11 @@
             </div>
 
 
-
             <div class="separador">
 
                 :
 
             </div>
-
 
 
             <!-- HORAS -->
@@ -364,13 +538,11 @@
             </div>
 
 
-
             <div class="separador">
 
                 :
 
             </div>
-
 
 
             <!-- MINUTOS -->
@@ -394,13 +566,11 @@
             </div>
 
 
-
             <div class="separador">
 
                 :
 
             </div>
-
 
 
             <!-- SEGUNDOS -->
@@ -427,12 +597,13 @@
         </div>
 
 
-
-        <!-- MENSAGEM QUANDO CHEGAR A DATA -->
+        <!-- =========================================
+             MENSAGEM FINAL
+        ========================================= -->
 
         <div id="mensagemFinal">
 
-            É BLACK CESTA!
+            🎉 É BLACK CESTA! 🎉
 
         </div>
 
@@ -443,12 +614,15 @@
 
     <script>
 
+
         /* =========================================
            VIDEO
         ========================================= */
 
         var video =
-            document.getElementById("videoTV");
+            document.getElementById(
+                "videoTV"
+            );
 
 
         video.muted = true;
@@ -456,13 +630,15 @@
         video.loop = true;
 
 
-        video.play().catch(function () {
+        video.play().catch(
+            function () {
 
-            console.log(
-                "Autoplay aguardando navegador."
-            );
+                console.log(
+                    "Autoplay aguardando navegador."
+                );
 
-        });
+            }
+        );
 
 
 
@@ -472,6 +648,7 @@
            BLACK CESTA
            27/11/2026
            00:00
+
            HORARIO DE SAO PAULO
         ========================================= */
 
@@ -487,27 +664,45 @@
         ========================================= */
 
         var elDias =
-            document.getElementById("dias");
+            document.getElementById(
+                "dias"
+            );
 
 
         var elHoras =
-            document.getElementById("horas");
+            document.getElementById(
+                "horas"
+            );
 
 
         var elMinutos =
-            document.getElementById("minutos");
+            document.getElementById(
+                "minutos"
+            );
 
 
         var elSegundos =
-            document.getElementById("segundos");
+            document.getElementById(
+                "segundos"
+            );
 
 
         var relogio =
-            document.getElementById("relogio");
+            document.getElementById(
+                "relogio"
+            );
 
 
         var mensagemFinal =
-            document.getElementById("mensagemFinal");
+            document.getElementById(
+                "mensagemFinal"
+            );
+
+
+        var caixaConfetes =
+            document.getElementById(
+                "confetes"
+            );
 
 
 
@@ -515,6 +710,7 @@
            FORMATAR NUMERO
 
            Exemplo:
+
            9 -> 09
            8 -> 08
         ========================================= */
@@ -528,6 +724,170 @@
             }
 
             return String(numero);
+
+        }
+
+
+
+        /* =========================================
+           CRIAR CONFETES
+        ========================================= */
+
+        var confetesCriados = false;
+
+
+        function iniciarConfetes() {
+
+
+            /* EVITAR CRIAR NOVAMENTE */
+
+            if (confetesCriados) {
+
+                return;
+
+            }
+
+
+            confetesCriados = true;
+
+
+            caixaConfetes.style.display =
+                "block";
+
+
+            /* CORES DOS CONFETES */
+
+            var cores = [
+
+                "#FF0000",
+                "#FFFF00",
+                "#00FF00",
+                "#00BFFF",
+                "#FF00FF",
+                "#FFA500",
+                "#FFFFFF",
+                "#FF1493"
+
+            ];
+
+
+            /* =====================================
+               QUANTIDADE DE CONFETES
+            ===================================== */
+
+            var quantidade = 180;
+
+
+            for (
+                var i = 0;
+                i < quantidade;
+                i++
+            ) {
+
+
+                var confete =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                confete.className =
+                    "confete";
+
+
+                /* POSICAO HORIZONTAL */
+
+                confete.style.left =
+                    Math.random() * 100 +
+                    "%";
+
+
+                /* COR */
+
+                confete.style.backgroundColor =
+                    cores[
+                        Math.floor(
+                            Math.random() *
+                            cores.length
+                        )
+                    ];
+
+
+                /* TAMANHO */
+
+                var largura =
+                    7 +
+                    Math.random() *
+                    10;
+
+
+                var altura =
+                    10 +
+                    Math.random() *
+                    18;
+
+
+                confete.style.width =
+                    largura +
+                    "px";
+
+
+                confete.style.height =
+                    altura +
+                    "px";
+
+
+                /* =====================================
+                   VELOCIDADE
+
+                   NUMERO MENOR = MAIS RAPIDO
+                ===================================== */
+
+                var duracao =
+                    3 +
+                    Math.random() *
+                    5;
+
+
+                confete.style.animationDuration =
+                    duracao +
+                    "s";
+
+
+                /* =====================================
+                   ATRASO ALEATORIO
+
+                   O VALOR NEGATIVO FAZ OS CONFETES
+                   COMECarem EM POSICOES DIFERENTES
+                ===================================== */
+
+                confete.style.animationDelay =
+                    "-" +
+                    (
+                        Math.random() *
+                        duracao
+                    ) +
+                    "s";
+
+
+                /* FORMATO */
+
+                if (
+                    Math.random() >
+                    0.6
+                ) {
+
+                    confete.style.borderRadius =
+                        "50%";
+
+                }
+
+
+                caixaConfetes.appendChild(
+                    confete
+                );
+
+            }
 
         }
 
@@ -549,7 +909,8 @@
             /* TEMPO RESTANTE */
 
             var diferenca =
-                dataFinal - agora;
+                dataFinal -
+                agora;
 
 
 
@@ -560,12 +921,39 @@
             if (diferenca <= 0) {
 
 
+                /* GARANTIR ZERO */
+
+                elDias.textContent =
+                    "00";
+
+
+                elHoras.textContent =
+                    "00";
+
+
+                elMinutos.textContent =
+                    "00";
+
+
+                elSegundos.textContent =
+                    "00";
+
+
+                /* ESCONDER RELOGIO */
+
                 relogio.style.display =
                     "none";
 
 
+                /* MOSTRAR MENSAGEM */
+
                 mensagemFinal.style.display =
                     "inline-block";
+
+
+                /* INICIAR CONFETES */
+
+                iniciarConfetes();
 
 
                 return;
@@ -580,7 +968,8 @@
 
             var totalSegundos =
                 Math.floor(
-                    diferenca / 1000
+                    diferenca /
+                    1000
                 );
 
 
@@ -591,7 +980,8 @@
 
             var dias =
                 Math.floor(
-                    totalSegundos / 86400
+                    totalSegundos /
+                    86400
                 );
 
 
@@ -603,7 +993,10 @@
             var horas =
                 Math.floor(
 
-                    (totalSegundos % 86400)
+                    (
+                        totalSegundos %
+                        86400
+                    )
 
                     /
 
@@ -620,7 +1013,10 @@
             var minutos =
                 Math.floor(
 
-                    (totalSegundos % 3600)
+                    (
+                        totalSegundos %
+                        3600
+                    )
 
                     /
 
@@ -635,7 +1031,8 @@
             ===================================== */
 
             var segundos =
-                totalSegundos % 60;
+                totalSegundos %
+                60;
 
 
 
@@ -644,19 +1041,27 @@
             ===================================== */
 
             elDias.textContent =
-                formatarNumero(dias);
+                formatarNumero(
+                    dias
+                );
 
 
             elHoras.textContent =
-                formatarNumero(horas);
+                formatarNumero(
+                    horas
+                );
 
 
             elMinutos.textContent =
-                formatarNumero(minutos);
+                formatarNumero(
+                    minutos
+                );
 
 
             elSegundos.textContent =
-                formatarNumero(segundos);
+                formatarNumero(
+                    segundos
+                );
 
         }
 
@@ -689,4 +1094,3 @@
 </body>
 
 </html>
-
